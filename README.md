@@ -20,7 +20,7 @@ Automated trend discovery tool that fetches popular GitHub repositories and gene
    uv sync
    ```
 
-3. **Configure environment**
+3. **Configure environment in GitHub secrets**
    ```bash
    GITHUB_TOKEN=your_github_token
    GEMINI_API_KEY=your_gemini_api_key
