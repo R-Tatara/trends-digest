@@ -1,0 +1,35 @@
+===== Python =====
+pycache/
+*.py[cod]
+*.pyo
+
+===== Virtual Environment (uv) =====
+.venv/
+.uv/
+
+===== Build / Packaging =====
+build/
+dist/
+*.egg-info/
+
+===== Test / Coverage =====
+.pytest_cache/
+.coverage
+htmlcov/
+
+===== OS =====
+.DS_Store
+Thumbs.db
+.env
+
+===== IDE / Editor =====
+.vscode/
+.idea/
+
+===== Logs =====
+*.log
+
+===== Images (temporary / local) =====
+*.png
+*.jpg
+*.jpeg
