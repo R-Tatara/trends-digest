@@ -2,8 +2,7 @@ name: Scheduled Trends Digest
 
 on:
   schedule:
-    # 毎日 2:45 (JST) = 17:45 (UTC)
-    - cron: '45 17 * * *'
+    - cron: '*/15 * * * *'
   workflow_dispatch: # 手動実行を可能にする
 
 jobs:
