@@ -2,8 +2,8 @@ name: Scheduled Trends Digest
 
 on:
   schedule:
-    # 毎週月曜日の朝9時 (JST) = 日曜日の午前0時 (UTC)
-    - cron: '0 0 * * 1'
+    # 毎日 23:52 (JST) = 14:52 (UTC)
+    - cron: '52 14 * * *'
   workflow_dispatch: # 手動実行を可能にする
 
 jobs:
