@@ -2,7 +2,7 @@ name: Scheduled Trends Digest
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '* 22 * * *'
   workflow_dispatch: # 手動実行を可能にする
 
 jobs:
