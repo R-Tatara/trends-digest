@@ -8,8 +8,6 @@ on:
 jobs:
   run-digest:
     runs-on: ubuntu-latest
-    # permissions:
-      # contents: read
 
     steps:
       - name: Checkout code
@@ -26,9 +24,7 @@ jobs:
 
       - name: Run script
         env:
-          # GitHubトークンはActionsで自動生成されるものを使用可能（レート制限緩和のため） of secrets.GITHUB_TOKEN
-          # もしくは、個人のPATを使う場合は secrets.MY_GITHUB_TOKEN などに設定してここで指定する
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           EMAIL_USER: ${{ secrets.EMAIL_USER }}
           EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
