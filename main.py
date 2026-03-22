@@ -14,7 +14,7 @@ def load_config(path: str = "config.yaml") -> dict:
         return yaml.safe_load(f)
 
 def main():
-    # 1. Load Configurations
+    # Load Configurations
     config = load_config()
 
     # 認証情報の取得（環境変数）
@@ -33,7 +33,7 @@ def main():
     gemini_client = GeminiClient(gemini_key, model_name=config["gemini_settings"]["model"])
     email_client = EmailClient(email_user, email_pass)
 
-    # 2. Search GitHub Repositories
+    # Search GitHub Repositories
     print("--- Step 1: Searching GitHub ---")
 
     # 日付計算 (直近7日間)
@@ -47,7 +47,7 @@ def main():
         print("No repositories found.")
         return
 
-    # 3. Analyze with Gemini
+    # Analyze with Gemini
     print("--- Step 2: Analyzing with Gemini ---")
     reports = []
     prompt_template = config["gemini_settings"]["prompt_template"]
@@ -65,7 +65,7 @@ def main():
             "digest": analysis
         })
 
-    # 4. Create and Send Email
+    # Create and Send Email
     print("--- Step 3: Sending Email ---")
     today_str = datetime.datetime.now().strftime('%Y-%m-%d')
     subject = config["email_settings"]["subject_template"].format(date=today_str)
@@ -81,6 +81,7 @@ def main():
         print("Weekly digest sent successfully.")
     else:
         print("Failed to send email.")
+
 
 if __name__ == "__main__":
     main()

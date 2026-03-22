@@ -2,7 +2,7 @@ search_settings:
   # 検索ターゲットの設定
   query_template: "created:>{date} sort:stars"
   # 取得するリポジトリの上限数
-  limit: 10
+  limit: 5
 
 gemini_settings:
   model: "gemini-2.0-flash"
@@ -23,7 +23,6 @@ gemini_settings:
     一行要約: (100文字以内で、何をするツールか簡潔に)
     解決する課題: (どのような課題を解決するために作られたか)
     主な特徴: (主要な技術の説明を数項目で簡潔に)
-    ユースケース: (どのようなプロジェクトやビジネスに適しているか)
 
 email_settings:
   subject_template: "[Weekly Digest] {date} - Popular GitHub Repositories"
