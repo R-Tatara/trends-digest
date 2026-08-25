@@ -4,7 +4,7 @@ from typing import Dict, Any
 
 
 class GeminiClient:
-    def __init__(self, api_key: str, model_name: str = "gemini-2.0-flash"):
+    def __init__(self, api_key: str, model_name: str = "gemini-3.5-flash-lite"):
         """
         Initialize Gemini client.
 
