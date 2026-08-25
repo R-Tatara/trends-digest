@@ -5,7 +5,7 @@ search_settings:
   limit: 5
 
 gemini_settings:
-  model: "gemini-2.0-flash"
+  model: "gemini-3.5-flash-lite"
   prompt_template: |
     あなたは熟練したソフトウェアエンジニアです。
     以下のGitHubリポジトリの情報を基に、他のエンジニアに向けた解説を作成してください。
