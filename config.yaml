@@ -4,8 +4,8 @@ search_settings:
   # 取得するリポジトリの上限数
   limit: 5
 
-gemini_settings:
-  model: "gemini-3.5-flash-lite"
+openai_settings:
+  model: "gpt-4o-mini"
   prompt_template: |
     あなたは熟練したソフトウェアエンジニアです。
     以下のGitHubリポジトリの情報を基に、他のエンジニアに向けた解説を作成してください。
