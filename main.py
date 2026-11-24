@@ -3,7 +3,7 @@ import yaml
 import datetime
 from dotenv import load_dotenv
 from src.github_client import GithubClient
-from src.gemini_client import GeminiClient
+from src.openai_client import OpenAIClient
 from src.email_client import EmailClient
 
 # Load environment variables
@@ -19,18 +19,18 @@ def main():
 
     # 認証情報の取得（環境変数）
     github_token = os.getenv("GITHUB_TOKEN")
-    gemini_key = os.getenv("GEMINI_API_KEY")
+    openai_key = os.getenv("OPENAI_API_KEY")
     email_user = os.getenv("EMAIL_USER")
     email_pass = os.getenv("EMAIL_PASS")
     email_to = os.getenv("EMAIL_TO")
 
-    if not all([github_token, gemini_key, email_user, email_pass, email_to]):
+    if not all([github_token, openai_key, email_user, email_pass, email_to]):
         print("Error: Missing environment variables. Please check .env file.")
         return
 
     # Initialize Clients
     gh_client = GithubClient(github_token)
-    gemini_client = GeminiClient(gemini_key, model_name=config["gemini_settings"]["model"])
+    openai_client = OpenAIClient(openai_key, model_name=config["openai_settings"]["model"])
     email_client = EmailClient(email_user, email_pass)
 
     # Search GitHub Repositories
@@ -47,14 +47,14 @@ def main():
         print("No repositories found.")
         return
 
-    # Analyze with Gemini
-    print("--- Step 2: Analyzing with Gemini ---")
+    # Analyze with OpenAI
+    print("--- Step 2: Analyzing with OpenAI ---")
     reports = []
-    prompt_template = config["gemini_settings"]["prompt_template"]
+    prompt_template = config["openai_settings"]["prompt_template"]
 
     for repo in repos:
         print(f"Processing: {repo['name']}")
-        analysis = gemini_client.analyze_repository(repo, prompt_template)
+        analysis = openai_client.analyze_repository(repo, prompt_template)
 
         # レポート用データ作成
         reports.append({
