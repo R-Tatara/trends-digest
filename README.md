@@ -3,20 +3,20 @@
 [![Scheduled Trends Digest](https://github.com/R-Tatara/trends-digest/actions/workflows/scheduled_digest.yml/badge.svg)](https://github.com/R-Tatara/trends-digest/actions/workflows/scheduled_digest.yml)
 [![MIT](https://custom-icon-badges.herokuapp.com/badge/license-MIT-8BB80A.svg?logo=law&logoColor=white)](LICENSE)
 [![Python](https://custom-icon-badges.herokuapp.com/badge/Python-3572A5.svg?logo=Python&logoColor=white)]()
-[![Google Gemini](https://custom-icon-badges.herokuapp.com/badge/Google%20Gemini-8E75B2.svg?logo=google-gemini&logoColor=white)]()
+[![OpenAI](https://custom-icon-badges.herokuapp.com/badge/OpenAI-412991.svg?logo=openai&logoColor=white)]()
 
-Automated trend discovery tool that fetches popular GitHub repositories and generates AI-powered summaries using Google Gemini. Insights are delivered directly to your inbox as a detailed email digest.
+Automated trend discovery tool that fetches popular GitHub repositories and generates AI-powered summaries using OpenAI. Insights are delivered directly to your inbox as a detailed email digest.
 
 ## Features
 
 - Fetches popular repositories from the past week using the GitHub API
-- Generates explanations in Japanese with Google Gemini
+- Generates explanations in Japanese with OpenAI
 - Sends the digest as an HTML email
 
 ## Prerequisites
 
 - A GitHub account
-- A Google Gemini API key
+- An OpenAI API key
 - A Gmail account
 
 ## Setup
@@ -31,7 +31,7 @@ In your forked repository, go to **Settings > Secrets and variables > Actions** 
 
 | Secret Name | Description | How to Obtain |
 |---|---|---|
-| `GEMINI_API_KEY` | Google Gemini API key | Issue at [Google AI Studio](https://aistudio.google.com/) |
+| `OPENAI_API_KEY` | OpenAI API key | Issue at [OpenAI Platform](https://platform.openai.com/api-keys) |
 | `EMAIL_USER` | Sender Gmail address | Your Gmail address |
 | `EMAIL_PASS` | Gmail app password | Your app password (refer to the [Google Account Help](https://support.google.com/accounts/answer/185833?hl=ja)) |
 | `EMAIL_TO` | Recipient email address | The address where you want to receive the digest |
@@ -66,7 +66,7 @@ This runs automatically every Monday 7:00 JST. To change the schedule, edit this
 You can customize the following by editing `config.yaml`:
 
 - **Search criteria**: Conditions and limits for fetching repositories
-- **Gemini model & prompt**: The model and prompt used for generating summaries
+- **OpenAI model & prompt**: The model and prompt used for generating summaries
 - **Email settings**: Subject template and introductory text
 
 ## License

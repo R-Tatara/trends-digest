@@ -1,18 +1,17 @@
-from google import genai
-from google.genai import types
+from openai import OpenAI
 from typing import Dict, Any
 
 
-class GeminiClient:
-    def __init__(self, api_key: str, model_name: str = "gemini-3.5-flash-lite"):
+class OpenAIClient:
+    def __init__(self, api_key: str, model_name: str = "gpt-4o-mini"):
         """
-        Initialize Gemini client.
+        Initialize OpenAI client.
 
         Args:
-            api_key: Gemini API Key
+            api_key: OpenAI API key
             model_name: Model version to use
         """
-        self.client = genai.Client(api_key=api_key)
+        self.client = OpenAI(api_key=api_key)
         self.model_name = model_name
 
     def analyze_repository(self, repo_data: Dict[str, Any], prompt_template: str) -> str:
@@ -36,15 +35,13 @@ class GeminiClient:
         )
 
         try:
-            response = self.client.models.generate_content(
+            response = self.client.chat.completions.create(
                 model=self.model_name,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    temperature=0.2, # 解説なので低めに設定して安定させる
-                    max_output_tokens=1000
-                )
+                messages=[{"role": "user", "content": prompt}],
+                temperature=0.2, # 解説なので低めに設定して安定させる
+                max_completion_tokens=1000
             )
-            return response.text
+            return response.choices[0].message.content
         except Exception as e:
-            print(f"Error calling Gemini API for {repo_data.get('name')}: {e}")
+            print(f"Error calling OpenAI API for {repo_data.get('name')}: {e}")
             return "解説の生成に失敗しました。"
